@@ -2,24 +2,64 @@
 #define bit2 16
 #define bit3 32
 #define bit4 48
+#define destinatario 'c'
 
-char mensaje;
-int mensaje_cf,mensaje_cc;
-int cod; //codificacion de huffman
+bool start=1; // Indicador del comienzo de la transmision
+char mensaje; // recibido desde bluetooth
+int codF,codC; //codificacion fuente, codificacion canal
+int i; // contador
 void setup()
-{
-  Serial.begin(9600);
-  mensaje_cf=codificacion_huffman('1');
+{  
+  pinMode(2,OUTPUT);
+  Serial.begin(9600);     
+  digitalWrite(2,1);  // alto por defecto 
 }
+
 void loop()
 {
-  delay(100);
-  Serial.println(mensaje_cf,BIN);   
+  if (Serial.available()){
+    mensaje=Serial.read();
+    codF=codificacion_huffman(mensaje);    
+    if(start){
+      inicializacion();
+    }
+    transmitir(codF);
+  }
+  if(mensaje=='\n'){     // byte que indica el fin de una transmision
+    start=1;   
+  }
+}
+
+void inicializacion()
+{
+  int cod;   // codificacion de fuente de la bandera
+  start=0; 
+  cod=codificacion_huffman('a');
+  transmitir(cod);
+  transmitir(cod);
+  transmitir(cod);
+  transmitir(cod);
+  transmitir(cod);
+  delay(20);
+  digitalWrite(2,0);
+  delay(1);
+  cod=codificacion_huffman(destinatario);
+  transmitir(cod);
+  transmitir(cod);
+}
+void transmitir(int trama)
+{
+  for(i=0;i<6;i++){
+     digitalWrite(2,(trama&(1<<(5-i)))>>(5-i));  
+     delay(1);
+  }
 }
 
 int codificacion_huffman(char mensaje)
 {
-  switch (mensaje) {
+  int cod;
+  switch (mensaje) 
+  {
      case 'e': 
        cod=0+bit1;    
        break;
@@ -86,7 +126,7 @@ int codificacion_huffman(char mensaje)
      case 'v':
        cod=7+bit4;
        break;
-          case 'u':
+     case 'u':
        cod=8+bit4;
        break;
      case 'q':
@@ -101,7 +141,7 @@ int codificacion_huffman(char mensaje)
      case 'x':
        cod=12+bit4;
        break;
-     case 164:
+     case 164:   // sigue mostrando error
        cod=13+bit4;
        break;
      case 'h':
@@ -109,7 +149,11 @@ int codificacion_huffman(char mensaje)
        break;
      case '\n':
        cod=15+bit4;
+       break;
+     default:
+       cod=10+bit4;  //si no es ninguna letra dentro de la codificacion huffman realizada, entrega un espacio
        break;      
    }
   return cod;
 }
+
