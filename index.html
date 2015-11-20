@@ -1,34 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-us">
   <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <meta charset="UTF-8">
+    <title>Proyecto Final Microprocesadores by CamiloARC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
-
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    <title>Proyecto Final Microprocesadores by CamiloARC</title>
   </head>
-
   <body>
-    <header>
-      <div class="inner">
-        <h1>Proyecto Final Microprocesadores</h1>
-        <h2>Desarrollo de un sistema de comunicaciones digital bidireccional basado en el microcontrolador ATmega328 en el que se implementa una codificacion de fuente y de canal</h2>
-        <a href="https://github.com/CamiloARC/Proyecto_Final_Microprocesadores" class="button"><small>View project on</small> GitHub</a>
-      </div>
-    </header>
+    <section class="page-header">
+      <h1 class="project-name">Proyecto Final Microprocesadores</h1>
+      <h2 class="project-tagline">Desarrollo de un sistema de comunicaciones digital bidireccional basado en el microcontrolador ATmega328 en el que se implementa una codificacion de fuente y de canal</h2>
+      <a href="https://github.com/CamiloARC/Proyecto_Final_Microprocesadores" class="btn">View on GitHub</a>
+      <a href="https://github.com/CamiloARC/Proyecto_Final_Microprocesadores/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/CamiloARC/Proyecto_Final_Microprocesadores/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-    <div id="content-wrapper">
-      <div class="inner clearfix">
-        <section id="main-content">
-          <h3>
+    <section class="main-content">
+      <h3>
 <a id="sistemas-de-comunicaciones-digital" class="anchor" href="#sistemas-de-comunicaciones-digital" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sistemas de Comunicaciones Digital.</h3>
 
 <h3>
@@ -65,16 +56,16 @@ una señal de tipo digital. Para este caso el papel de fuente lo toma el disposi
 <p><img src="http://blogs-images.forbes.com/amitchowdhry/files/2015/02/Samsung-Galaxy-S5.png" alt=""></p>
 
 <h3>
-<a id="2codificacion-de-fuente" class="anchor" href="#2codificacion-de-fuente" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.Codificacion de Fuente</h3>
+<a id="2-recepcion-bluetooth" class="anchor" href="#2-recepcion-bluetooth" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Recepcion Bluetooth</h3>
+
+<p>Debido a que la fuente generadora de informacion es el dispositivo movil y no esta directamente enlazada o conectada con el microcontrolador, se requiere un modulo Bluetooth que actue como puente, es decir, un dispositivo que conecte la fuente con el microcontrolador dada la incompatibilidad fisica de entradas y salidas de los mismos. Lo anterior se hace sumamente necesario para que el microcontrolador obtenga los valores digitales de la informacion.</p>
+
+<h3>
+<a id="3codificacion-de-fuente" class="anchor" href="#3codificacion-de-fuente" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.Codificacion de Fuente</h3>
 
 <p>La codificación de caracteres es el método que permite convertir un carácter de un lenguaje natural (como el de un alfabeto o silabario) en un símbolo de otro sistema de representación, como un número o una secuencia de pulsos eléctricos en un sistema electrónico, aplicando normas o reglas de codificación. Para la fuente se aplico precisamente una codificacion acorde a un sistema de caracteres pre establecido; se empleo la codificacion huffman.En ciencias de la computación y teoría de la información, la codificación Huffman es un algoritmo usado para compresión de datos. El término se refiere al uso de una tabla de códigos de longitud variable para codificar un determinado símbolo (como puede ser un carácter en un archivo), donde la tabla ha sido rellenada de una manera específica basándose en la probabilidad estimada de aparición de cada posible valor de dicho símbolo.La codificación Huffman usa un método específico para elegir la representación de cada símbolo, que da lugar a un código prefijo (es decir, la cadena de bits que representa a un símbolo en particular nunca es prefijo de la cadena de bits de un símbolo distinto) que representa los caracteres más comunes usando las cadenas de bits más cortas, y viceversa.</p>
 
 <p><img src="https://github.com/CamiloARC/Proyecto_Final_Microprocesadores/blob/master/arbol.jpg?raw=true" alt=""></p>
-
-<h3>
-<a id="3-recepcion-bluetooth" class="anchor" href="#3-recepcion-bluetooth" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. Recepcion Bluetooth</h3>
-
-<p>Debido a que la fuente generadora de informacion es el dispositivo movil y no esta directamente enlazada o conectada con el microcontrolador, se requiere un modulo Bluetooth que actue como puente, es decir, un dispositivo que conecte la fuente con el microcontrolador dada la incompatibilidad fisica de entradas y salidas de los mismos. Lo anterior se hace sumamente necesario para que el microcontrolador obtenga los valores digitales de la informacion.</p>
 
 <h3>
 <a id="4-codificacion-de-canal" class="anchor" href="#4-codificacion-de-canal" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. Codificacion de Canal</h3>
@@ -101,14 +92,14 @@ una señal de tipo digital. Para este caso el papel de fuente lo toma el disposi
 <p>La decodificacion de canal corre por parte nuevamente por los algoritmos Hamming. Teniendo en cuenta que al receptor le llegan paquetes de informacion con redundancia, el algoritmo Hamming aprovecha la paridad en las tramas de datos para decodificar los paquetes y obtener la informacion original. La paridad permite conocer si un dato es erroneo, evaluando la paridad en las tramas se debe de confirmar una existencia, de lo contrario el hay un bit erroneo y es corregido.</p>
 
 <h3>
-<a id="8-transmision-bluetooth" class="anchor" href="#8-transmision-bluetooth" aria-hidden="true"><span class="octicon octicon-link"></span></a>8. Transmision Bluetooth</h3>
-
-<p>Para poder hacer llegar la informacion al dispositivo movil receptor, se requiere de nuevo el modulo Bluetooth puesto que este establece el emparejamiento entre dispositivo y por medio de la codificacion de fuente, el dispositivo movil que asume el rol de sumidero recibe la informacion final.</p>
-
-<h3>
-<a id="9-decodificacion-de-fuente" class="anchor" href="#9-decodificacion-de-fuente" aria-hidden="true"><span class="octicon octicon-link"></span></a>9. Decodificacion de Fuente</h3>
+<a id="8-decodificacion-de-fuente" class="anchor" href="#8-decodificacion-de-fuente" aria-hidden="true"><span class="octicon octicon-link"></span></a>8. Decodificacion de Fuente</h3>
 
 <p>La decodificacion de fuente es el proceso inverso a la codificacion. Dicho proceso revierte la codificacion huffman y obtine la informacion original que fue generada en primera instancia por el dispositivo movil perteneciente al proceso de transmision.</p>
+
+<h3>
+<a id="9-transmision-bluetooth" class="anchor" href="#9-transmision-bluetooth" aria-hidden="true"><span class="octicon octicon-link"></span></a>9. Transmision Bluetooth</h3>
+
+<p>Para poder hacer llegar la informacion al dispositivo movil receptor, se requiere de nuevo el modulo Bluetooth puesto que este establece el emparejamiento entre dispositivo y por medio de la codificacion de fuente, el dispositivo movil que asume el rol de sumidero recibe la informacion final.</p>
 
 <h3>
 <a id="10-destino" class="anchor" href="#10-destino" aria-hidden="true"><span class="octicon octicon-link"></span></a>10. Destino</h3>
@@ -123,24 +114,14 @@ una señal de tipo digital. Para este caso el papel de fuente lo toma el disposi
 <li><p>Los dispositivos moviles pueden estar a una distancia de 10 metros de los modulos Bluetooth</p></li>
 <li><p>La maxima cantidad de caracteres que se pueden enviar son 60 en un solo mensaje</p></li>
 </ul>
-        </section>
 
-        <aside id="sidebar">
-          <a href="https://github.com/CamiloARC/Proyecto_Final_Microprocesadores/zipball/master" class="button">
-            <small>Download</small>
-            .zip file
-          </a>
-          <a href="https://github.com/CamiloARC/Proyecto_Final_Microprocesadores/tarball/master" class="button">
-            <small>Download</small>
-            .tar.gz file
-          </a>
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/CamiloARC/Proyecto_Final_Microprocesadores">Proyecto Final Microprocesadores</a> is maintained by <a href="https://github.com/CamiloARC">CamiloARC</a>.</span>
 
-          <p class="repo-owner"><a href="https://github.com/CamiloARC/Proyecto_Final_Microprocesadores"></a> is maintained by <a href="https://github.com/CamiloARC">CamiloARC</a>.</p>
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
 
-          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
-        </aside>
-      </div>
-    </div>
+    </section>
 
   
   </body>
