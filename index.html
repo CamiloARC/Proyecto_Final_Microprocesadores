@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Proyecto final microprocesadores by CamiloARC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Proyecto final microprocesadores</h1>
+      <h2 class="project-tagline">Desarrollo de un sistema de comunicaciones digital bidireccional basado en el microcontrolador ATmega328 en el que se implementa una codificacion de fuente y de canal</h2>
+      <a href="https://github.com/CamiloARC/Proyecto_Final_Microprocesadores" class="btn">View on GitHub</a>
+      <a href="https://github.com/CamiloARC/Proyecto_Final_Microprocesadores/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/CamiloARC/Proyecto_Final_Microprocesadores/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h3>
+<a id="sistemas-de-comunicaciones-digital" class="anchor" href="#sistemas-de-comunicaciones-digital" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sistemas de Comunicaciones Digital.</h3>
+
+<h3>
+<a id="descripcion" class="anchor" href="#descripcion" aria-hidden="true"><span class="octicon octicon-link"></span></a>Descripcion</h3>
+
+<p>El proyecto consiste en un sistema de comunicaciones digital basado en el microcontrolador ATmgega328, programado atraves de la IDE de Arduino. El sistema es inalambrico pero contiene señales con ambas naturalezas (analoga y digital); la fuente generadora de la informacion son dispositivos moviles emparejados con un modulo Bluetooth cada uno los cuales reciben la informacion digital proveniente del dispositivo movil con una codificacion de fuente y por medio de unos unos modulos RF se envia la infromacion por el aire realizando una modulacion ASK y en su defecto una demodulacion en el receptor.En primer lugar para la codificacion de fuente se utilizo la codificacion Huffman, la cual apartir de unas ramificaciones pre establecidas se pueden representar todas  las letras del abecedario. Para la codificacion de canal se implemento la codificacion Hamming, la cual toma paquetes de datos binario y los extiende atraves de unos bits de paridad que aseguran que la informacion se envie de manera correcta y ademas su formato facilita la correcion de un error dentro de las tramas a decodificar en el dispositivo receptor.La diferencia fundamental entre las comunicaciones digitales y las analógicas es que en las segundas el número de posibles formas de onda por transmitir es infinito mientras que en una comunicación digital el emisor solo tiene a su disposición un conjunto finito y discreto de formas de onda que debe hacer corresponder con los bits por transmitir. Es importante resaltar que en el contexto de las comunicaciones digitales el proceso de la comunicación se efectúa independientemente del tipo de información que se envía.</p>
+
+<h3>
+<a id="etapas" class="anchor" href="#etapas" aria-hidden="true"><span class="octicon octicon-link"></span></a>Etapas</h3>
+
+<p>El sistema se puede representar por medio de un <a href="https://github.com/CamiloARC/Proyecto_Final_Microprocesadores/blob/master/esquema.jpg">esquema</a> que modela las etapas que componen la comunicacion entre los moviles. Al sistema lo componen 10 etapas significativas a la hora de enviar informacion de un movil hasta el otro; acontinuacion se describen mas detalladamente dichas etapas con su funcion y algunas caracteristicas que exhiben:</p>
+
+<h3>
+<a id="1fuente" class="anchor" href="#1fuente" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.Fuente</h3>
+
+<p>La fuente de información digital es la encargada de convertir el mensaje que se desea transmitir en una señal eléctrica adecuada al tipo de sistema que se va a utilizar.Por tratarse de un sistema de comunicación digital, la fuente debe generar
+una señal de tipo digital. Para este caso el papel de fuente lo toma el dispositivo movil puesto que atraves de el se genera la informacion y es el punto de partida para la transmision de datos.</p>
+
+<h3>
+<a id="2codificacion-de-fuente" class="anchor" href="#2codificacion-de-fuente" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.Codificacion de Fuente</h3>
+
+<p>La codificación de caracteres es el método que permite convertir un carácter de un lenguaje natural (como el de un alfabeto o silabario) en un símbolo de otro sistema de representación, como un número o una secuencia de pulsos eléctricos en un sistema electrónico, aplicando normas o reglas de codificación. Para la fuente se aplico precisamente una codificacion acorde a un <a href="https://github.com/CamiloARC/Proyecto_Final_Microprocesadores/blob/master/huffman.docx">sistema de caracteres</a> pre establecido; se empleo la codificacion huffman.En ciencias de la computación y teoría de la información, la codificación Huffman es un algoritmo usado para compresión de datos. El término se refiere al uso de una tabla de códigos de longitud variable para codificar un determinado símbolo (como puede ser un carácter en un archivo), donde la tabla ha sido rellenada de una manera específica basándose en la probabilidad estimada de aparición de cada posible valor de dicho símbolo.La codificación Huffman usa un método específico para elegir la representación de cada símbolo, que da lugar a un código prefijo (es decir, la cadena de bits que representa a un símbolo en particular nunca es prefijo de la cadena de bits de un símbolo distinto) que representa los caracteres más comunes usando las cadenas de bits más cortas, y viceversa.</p>
+
+<h3>
+<a id="3-recepcion-bluetooth" class="anchor" href="#3-recepcion-bluetooth" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. Recepcion Bluetooth</h3>
+
+<p>Debido a que la fuente generadora de informacion es el dispositivo movil y no esta directamente enlazada o conectada con el microcontrolador, se requiere un modulo Bluetooth que actue como puente, es decir, un dispositivo que conecte la fuente con el microcontrolador dada la incompatibilidad fisica de entradas y salidas de los mismos. Lo anterioir se hace sumamente necesario para que el microcontrolador obtenga los valores digitales de la informacion.</p>
+
+<h3>
+<a id="4-codificacion-de-canal" class="anchor" href="#4-codificacion-de-canal" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. Codificacion de Canal</h3>
+
+<p>El objetivo de la codificación de canal es reducir la probabilidad de error o bien garantizar una s/n necesaria para garantizar una cierta tasa de error. Esta herramienta consiste en transforma secuencias binarias en secuencias mejores que incluyan redundancia estructurada: los bits redundantes pueden ser utilizados para detectar y corregir errores.  En el sistema se implemento una codificacion de Hamming, la cual añade unos bits de paridad a los paquetes de informacion permitiendo una mayor confiabilidad e incluso correccion de errores a la hora de decodificar.</p>
+
+<h3>
+<a id="5-transmision-rf" class="anchor" href="#5-transmision-rf" aria-hidden="true"><span class="octicon octicon-link"></span></a>5. Transmision RF</h3>
+
+<p>Para transmitir la informacion de manera inalambrica, nuevamente se requiere el uso de un modulo, para esta caso un modulo RF (Radio Frecuencia), el cual con la informacion previamente codificada la transmite por el aire de manera analoga con una modulacion ASK.La modulación por desplazamiento de amplitud es una forma de modulación en la cual se representan los datos digitales como variaciones de amplitud de la onda portadora en función de los datos a enviar.La amplitud de una señal portadora analógica varía conforme a la corriente de bit (modulando la señal), manteniendo la frecuencia y la fase constante. El nivel de amplitud puede ser usado para representar los valores binarios 0s y 1s. Podemos pensar en la señal portadora como un interruptor ON/OFF. En la señal modulada, el valor lógico 0 es representado por la ausencia de una portadora, así que da ON/OFF la operación de pulsación y de ahí el nombre dado.</p>
+
+<h3>
+<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+
+<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor’s GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+
+<h3>
+<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+
+<p>Having trouble with Pages? Check out our <a href="https://help.github.com/pages">documentation</a> or <a href="https://github.com/contact">contact support</a> and we’ll help you sort it out.arduino</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/CamiloARC/Proyecto_Final_Microprocesadores">Proyecto final microprocesadores</a> is maintained by <a href="https://github.com/CamiloARC">CamiloARC</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
