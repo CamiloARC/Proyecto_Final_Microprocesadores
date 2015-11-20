@@ -47,10 +47,12 @@ una señal de tipo digital. Para este caso el papel de fuente lo toma el disposi
 
 <p>La codificación de caracteres es el método que permite convertir un carácter de un lenguaje natural (como el de un alfabeto o silabario) en un símbolo de otro sistema de representación, como un número o una secuencia de pulsos eléctricos en un sistema electrónico, aplicando normas o reglas de codificación. Para la fuente se aplico precisamente una codificacion acorde a un <a href="https://github.com/CamiloARC/Proyecto_Final_Microprocesadores/blob/master/huffman.docx">sistema de caracteres</a> pre establecido; se empleo la codificacion huffman.En ciencias de la computación y teoría de la información, la codificación Huffman es un algoritmo usado para compresión de datos. El término se refiere al uso de una tabla de códigos de longitud variable para codificar un determinado símbolo (como puede ser un carácter en un archivo), donde la tabla ha sido rellenada de una manera específica basándose en la probabilidad estimada de aparición de cada posible valor de dicho símbolo.La codificación Huffman usa un método específico para elegir la representación de cada símbolo, que da lugar a un código prefijo (es decir, la cadena de bits que representa a un símbolo en particular nunca es prefijo de la cadena de bits de un símbolo distinto) que representa los caracteres más comunes usando las cadenas de bits más cortas, y viceversa.</p>
 
+<p><img src="https://github.com/CamiloARC/Proyecto_Final_Microprocesadores/blob/master/arbol.jpg?raw=true" alt=""></p>
+
 <h3>
 <a id="3-recepcion-bluetooth" class="anchor" href="#3-recepcion-bluetooth" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. Recepcion Bluetooth</h3>
 
-<p>Debido a que la fuente generadora de informacion es el dispositivo movil y no esta directamente enlazada o conectada con el microcontrolador, se requiere un modulo Bluetooth que actue como puente, es decir, un dispositivo que conecte la fuente con el microcontrolador dada la incompatibilidad fisica de entradas y salidas de los mismos. Lo anterioir se hace sumamente necesario para que el microcontrolador obtenga los valores digitales de la informacion.</p>
+<p>Debido a que la fuente generadora de informacion es el dispositivo movil y no esta directamente enlazada o conectada con el microcontrolador, se requiere un modulo Bluetooth que actue como puente, es decir, un dispositivo que conecte la fuente con el microcontrolador dada la incompatibilidad fisica de entradas y salidas de los mismos. Lo anterior se hace sumamente necesario para que el microcontrolador obtenga los valores digitales de la informacion.</p>
 
 <h3>
 <a id="4-codificacion-de-canal" class="anchor" href="#4-codificacion-de-canal" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. Codificacion de Canal</h3>
@@ -61,6 +63,8 @@ una señal de tipo digital. Para este caso el papel de fuente lo toma el disposi
 <a id="5-transmision-rf" class="anchor" href="#5-transmision-rf" aria-hidden="true"><span class="octicon octicon-link"></span></a>5. Transmision RF</h3>
 
 <p>Para transmitir la informacion de manera inalambrica, nuevamente se requiere el uso de un modulo, para esta caso un modulo RF (Radio Frecuencia), el cual con la informacion previamente codificada la transmite por el aire de manera analoga con una modulacion ASK.La modulación por desplazamiento de amplitud es una forma de modulación en la cual se representan los datos digitales como variaciones de amplitud de la onda portadora en función de los datos a enviar.La amplitud de una señal portadora analógica varía conforme a la corriente de bit (modulando la señal), manteniendo la frecuencia y la fase constante. El nivel de amplitud puede ser usado para representar los valores binarios 0s y 1s. Podemos pensar en la señal portadora como un interruptor ON/OFF. En la señal modulada, el valor lógico 0 es representado por la ausencia de una portadora, así que da ON/OFF la operación de pulsación y de ahí el nombre dado.</p>
+
+<p><img src="https://github.com/CamiloARC/Proyecto_Final_Microprocesadores/blob/master/pareja-transmisor-y-receptor-de-433-mhz-ef03037.jpg?raw=true" alt=""></p>
 
 <p>Las primeras 5 etapas corresponde al proceso de transmision, las 5 etapas restantes corresponden al proceso de recepcion. La recepcion en el sistema realiza generalmente procesos inversos a los de la transmision,es decir, decodificar y recibir informacion es lo que basicamente compone dicho proceso; igualmente acontinucacion se explicanel proceso de recepcion (RX):</p>
 
